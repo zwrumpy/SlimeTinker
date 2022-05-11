@@ -200,11 +200,11 @@ public final class EntityDamageEvents {
     }
 
     public static void headSingGold(EventFriend friend) {
-        friend.setDamageMod(friend.getDamageMod() + 0.5);
+        friend.setDamageMod(friend.getDamageMod() + 0.1);
     }
 
     public static void headSingTin(EventFriend friend) {
-        friend.setDamageMod(friend.getDamageMod() - 0.5);
+        friend.setDamageMod(friend.getDamageMod() - 0.1);
     }
 
     public static void headAdamantite(EventFriend friend) {

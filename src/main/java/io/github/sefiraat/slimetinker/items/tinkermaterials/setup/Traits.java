@@ -61,7 +61,7 @@ public final class Traits {
         .setTraitName("Golden Veil")
         .setLore(
             "Makes the player invisible. If used on",
-            "a weapon, -100% damage."
+            "a weapon, -10% damage."
         )
         .addConsumer(TraitEventType.ENTITY_DAMAGED, EntityDamageEvents::headGold)
         .addConsumer(TraitEventType.TICK, TickEvents::headGold);
@@ -1321,7 +1321,7 @@ public final class Traits {
         .setTraitName("Golden Veil II")
         .setLore(
             "Makes the player invisible. If used on",
-            "a weapon, +50% damage."
+            "a weapon, +10% damage."
         )
         .addConsumer(TraitEventType.TICK, TickEvents::headSingGold)
         .addConsumer(TraitEventType.ENTITY_DAMAGED, EntityDamageEvents::headSingGold);
