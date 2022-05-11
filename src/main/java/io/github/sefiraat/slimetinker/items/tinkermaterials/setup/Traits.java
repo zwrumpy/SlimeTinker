@@ -63,7 +63,7 @@ public final class Traits {
             "Makes the player invisible. If used on",
             "a weapon, -10% damage."
         )
-        .addConsumer(TraitEventType.ENTITY_DAMAGED, EntityDamageEvents::headGold)
+        //.addConsumer(TraitEventType.ENTITY_DAMAGED, EntityDamageEvents::headGold)
         .addConsumer(TraitEventType.TICK, TickEvents::headGold);
 
     public static final MaterialTrait CORE_GOLD_ROD = new MaterialTrait()
