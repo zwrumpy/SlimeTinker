@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>io.github.sefiraat.slimetinker</groupId>
     <artifactId>SlimeTinker</artifactId>
-    <version>MODIFIED</version>
+    <version>CH+ 0.1</version>
 
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
