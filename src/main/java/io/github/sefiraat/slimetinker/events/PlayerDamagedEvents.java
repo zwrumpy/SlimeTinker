@@ -490,7 +490,7 @@ public final class PlayerDamagedEvents {
     }
 
     public static void linksInfinity(EventFriend friend) {
-        if (friend.getDamagingEntity() != null && GeneralUtils.testChance(20, 100)) {
+        if (friend.getDamagingEntity() != null && GeneralUtils.testChance(10, 100)) {
             friend.setDamageMod(0);
             if (friend.getDamagingEntity() instanceof LivingEntity) {
                 LivingEntity e = (LivingEntity) friend.getDamagingEntity();

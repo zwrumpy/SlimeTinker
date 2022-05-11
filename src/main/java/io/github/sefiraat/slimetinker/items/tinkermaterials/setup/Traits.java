@@ -1921,7 +1921,7 @@ public final class Traits {
         .setAddedBy(SupportedPluginsManager.INFINITY_EXPANSION_NOTE)
         .setTraitName("Oroborus")
         .setLore(
-            "20% chance to reflect damage taken."
+            "10% chance to reflect damage taken."
         )
         .addConsumer(TraitEventType.PLAYER_DAMAGED, PlayerDamagedEvents::linksInfinity);
 
