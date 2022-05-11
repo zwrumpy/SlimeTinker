@@ -2535,8 +2535,7 @@ public final class Traits {
         .setAddedBy(SupportedPluginsManager.DYNATECH_NOTE)
         .setTraitName("Yvaine")
         .setLore(
-            "Gives an ethereal glow and makes villagers",
-            "friendlier to you."
+            "Gives an ethereal glow"
         )
         .addConsumer(TraitEventType.TICK, TickEvents::rodStarDust);
 

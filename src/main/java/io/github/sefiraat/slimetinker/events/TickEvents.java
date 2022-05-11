@@ -348,13 +348,13 @@ public final class TickEvents {
 
     public static void rodStarDust(EventFriend friend) {
         increaseEffect(PotionEffectType.GLOWING, friend.getPotionEffects());
-        for (Entity e : friend.getPlayer().getNearbyEntities(10, 10, 10)) {
-            if (e instanceof Villager) {
-                Location eLoc = e.getLocation();
-                Location pLoc = friend.getPlayer().getLocation();
-                e.teleport(WorldUtils.getMid(eLoc.getWorld(), eLoc.getX(), eLoc.getY(), eLoc.getZ(), pLoc.getX(), pLoc.getY(), pLoc.getZ()));
-            }
-        }
+//        for (Entity e : friend.getPlayer().getNearbyEntities(10, 10, 10)) {
+//            if (e instanceof Villager) {
+//                Location eLoc = e.getLocation();
+//                Location pLoc = friend.getPlayer().getLocation();
+//                e.teleport(WorldUtils.getMid(eLoc.getWorld(), eLoc.getX(), eLoc.getY(), eLoc.getZ(), pLoc.getX(), pLoc.getY(), pLoc.getZ()));
+//            }
+//        }
     }
 
     public static void rodRefinedIron(EventFriend friend) {
