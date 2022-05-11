@@ -136,7 +136,7 @@ public final class EntityDamageEvents {
 
     public static void headHard(EventFriend friend) {
         LivingEntity e = (LivingEntity) friend.getDamagedEntity();
-        push(e, friend.getPlayer().getLocation(), 3);
+        //push(e, friend.getPlayer().getLocation(), 3);
         PotionEffect potionEffect = new PotionEffect(PotionEffectType.SLOW, 100, 3);
         e.addPotionEffect(potionEffect);
         Particle.DustOptions dustOptions = new Particle.DustOptions(Color.fromRGB(90, 70, 30), 2);

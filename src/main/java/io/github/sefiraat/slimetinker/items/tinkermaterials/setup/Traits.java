@@ -2397,7 +2397,8 @@ public final class Traits {
         .setAddedBy(SupportedPluginsManager.SLIMEFUN_WARFARE_NOTE)
         .setTraitName("Tuff Stuff")
         .setLore(
-            "Knocks back anything hit and stuns."
+            //"Knocks back anything hit and stuns."
+            "Stuns anything"
         )
         .addConsumer(TraitEventType.ENTITY_DAMAGED, EntityDamageEvents::headHard);
 
