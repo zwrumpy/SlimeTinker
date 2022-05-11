@@ -494,7 +494,7 @@ public final class PlayerDamagedEvents {
             friend.setDamageMod(0);
             if (friend.getDamagingEntity() instanceof LivingEntity) {
                 LivingEntity e = (LivingEntity) friend.getDamagingEntity();
-                e.damage(friend.getInitialDamage(), friend.getPlayer());
+                e.damage(friend.getInitialDamage()/2, friend.getPlayer());
                 e.getWorld().spawnParticle(Particle.ELECTRIC_SPARK, e.getLocation(), 5, 0.5, 0.5, 0.5);
             }
         }
