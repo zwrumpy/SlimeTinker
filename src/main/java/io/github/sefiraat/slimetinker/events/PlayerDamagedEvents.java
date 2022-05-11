@@ -459,7 +459,7 @@ public final class PlayerDamagedEvents {
     public static void linksSingInfinity(EventFriend friend) {
         friend.setInfinity(friend.getInfinity() + 1);
         if (friend.getInfinity() >= 4) {
-            friend.setDamageOverride(1D);
+            friend.setDamageOverride(6D);
         }
     }
 
