@@ -479,7 +479,7 @@ public final class TickEvents {
     }
 
     public static void plateMagnesium(EventFriend friend) {
-        increaseEffect(PotionEffectType.SPEED, friend.getPotionEffects(), 3);
+        increaseEffect(PotionEffectType.SPEED, friend.getPotionEffects(), 1);
     }
 
     public static void linksMagnesium(EventFriend friend) {
