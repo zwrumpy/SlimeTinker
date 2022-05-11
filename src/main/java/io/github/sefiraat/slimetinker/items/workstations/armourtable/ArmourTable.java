@@ -151,6 +151,12 @@ public class ArmourTable extends MenuBlock {
         ItemStack plates = blockMenu.getItemInSlot(INPUT_PLATES);
         ItemStack gambeson = blockMenu.getItemInSlot(INPUT_GAMBESON);
         ItemStack links = blockMenu.getItemInSlot(INPUT_MAIL_LINK);
+        ItemStack output = blockMenu.getItemInSlot(42);
+
+        if (output != null) {
+            player.sendMessage(ThemeUtils.ERROR + "Output not empty");
+            return;
+        }
 
         if (plates == null || gambeson == null || links == null) { // Missing one or more items
             player.sendMessage(ThemeUtils.ERROR + "Not all items present");

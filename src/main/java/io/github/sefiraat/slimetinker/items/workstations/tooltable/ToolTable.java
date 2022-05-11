@@ -167,6 +167,12 @@ public class ToolTable extends TickingMenuBlock {
         ItemStack head = blockMenu.getItemInSlot(INPUT_HEAD);
         ItemStack binding = blockMenu.getItemInSlot(INPUT_BINDING);
         ItemStack rod = blockMenu.getItemInSlot(INPUT_ROD);
+        ItemStack output = blockMenu.getItemInSlot(42);
+
+        if (output != null) {
+            player.sendMessage(ThemeUtils.ERROR + "Output not empty");
+            return;
+        }
 
         if (head == null || binding == null || rod == null) { // Missing one or more items
             player.sendMessage(ThemeUtils.ERROR + "Not all items present");
