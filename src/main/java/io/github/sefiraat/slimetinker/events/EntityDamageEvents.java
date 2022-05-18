@@ -176,6 +176,7 @@ public final class EntityDamageEvents {
 
     public static void headEarth(EventFriend friend) {
         LivingEntity e = (LivingEntity) friend.getDamagedEntity();
+        if (e instanceof Player){ return; }
         push(e, friend.getPlayer().getLocation(), 7);
         PotionEffect potionEffect = new PotionEffect(PotionEffectType.SLOW, 100, 3);
         e.addPotionEffect(potionEffect);
