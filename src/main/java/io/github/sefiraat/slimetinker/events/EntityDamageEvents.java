@@ -162,7 +162,7 @@ public final class EntityDamageEvents {
     }
 
     public static void headSingInfinity(EventFriend friend) {
-        friend.setDamageMod(friend.getDamageMod() + 2);
+        friend.setDamageMod(friend.getDamageMod() + 1.5);
         friend.setToolExpMod(friend.getToolExpMod() + 2);
     }
 

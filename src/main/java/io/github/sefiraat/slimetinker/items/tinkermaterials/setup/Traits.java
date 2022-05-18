@@ -1930,7 +1930,7 @@ public final class Traits {
         .setAddedBy(SupportedPluginsManager.INFINITY_EXPANSION_NOTE)
         .setTraitName("Breakpoint")
         .setLore(
-            "Unbreakable. +200% Damage.",
+            "Unbreakable. +150% Damage.",
             "+200% Tool Exp and 3x3 Mining."
         )
         .addConsumer(TraitEventType.DURABILITY, DurabilityEvents::headSingInfinity)
