@@ -56,13 +56,13 @@ public final class EntityDamageEvents {
     }
 
     public static void headAluBrass(EventFriend friend) {
+        if (friend.getDamagedEntity() instanceof Player) return;
         int rnd = ThreadLocalRandom.current().nextInt(1, 10);
         if (rnd == 1) {
             int rndX = ThreadLocalRandom.current().nextInt(-25, 26);
             int rndY = ThreadLocalRandom.current().nextInt(0, 5);
             int rndZ = ThreadLocalRandom.current().nextInt(-25, 26);
             Entity entity = friend.getDamagedEntity();
-            if (entity instanceof Player) return;
             Location location = entity.getLocation().clone().add(rndX, rndY, rndZ);
             if (entity.getWorld().getBlockAt(location).getType() == Material.AIR) {
                 entity.teleport(location);
