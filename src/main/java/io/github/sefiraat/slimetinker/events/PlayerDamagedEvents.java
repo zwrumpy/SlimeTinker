@@ -191,6 +191,7 @@ public final class PlayerDamagedEvents {
 
     public static void plateSilver(EventFriend friend) {
         NamespacedKey key = Keys.STOP_EVENTS;
+        if (friend.getPlayer() == null) return;
         Player player = friend.getPlayer();
         if (!PersistentDataAPI.hasInt(player, key) && friend.getCause() == EntityDamageEvent.DamageCause.LIGHTNING) {
             PersistentDataAPI.setInt(player, key, 1);
@@ -315,6 +316,7 @@ public final class PlayerDamagedEvents {
 
     public static void linksSingZinc(EventFriend friend) {
         if (friend.getCause() == EntityDamageEvent.DamageCause.CONTACT) {
+            if (friend.getPlayer() == null) return;
             Player p = friend.getPlayer();
             friend.setDamageMod(0);
             p.setHealth(Math.min(p.getAttribute(Attribute.GENERIC_MAX_HEALTH).getValue(), p.getHealth() + friend.getInitialDamage()));
@@ -331,6 +333,7 @@ public final class PlayerDamagedEvents {
 
     public static void linksMythril(EventFriend friend) {
         if (GeneralUtils.testChance(1, 20)) {
+            if (friend.getPlayer() == null) return;
             Player p = friend.getPlayer();
             Wolf w = (Wolf) p.getWorld().spawnEntity(p.getLocation(), EntityType.WOLF);
             w.setOwner(p);
@@ -351,6 +354,7 @@ public final class PlayerDamagedEvents {
 
     public static void plateSingSilver(EventFriend friend) {
         NamespacedKey key = Keys.STOP_EVENTS;
+        if (friend.getPlayer() == null) return;
         Player player = friend.getPlayer();
         if (!PersistentDataAPI.hasInt(player, key) && friend.getCause() == EntityDamageEvent.DamageCause.LIGHTNING) {
             PersistentDataAPI.setInt(player, key, 1);
@@ -366,6 +370,7 @@ public final class PlayerDamagedEvents {
     }
 
     public static void plateAdamantite(EventFriend friend) {
+        if (friend.getPlayer() == null) return;
         if (friend.getCause() == EntityDamageEvent.DamageCause.PROJECTILE) {
             friend.setDamageMod(friend.getDamageMod() - 0.25);
         }
