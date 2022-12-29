@@ -34,6 +34,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
+import javax.annotation.Nonnull;
 import java.util.concurrent.ThreadLocalRandom;
 
 import static io.github.sefiraat.slimetinker.utils.EntityUtils.increaseEffect;
@@ -292,6 +293,7 @@ public final class PlayerDamagedEvents {
     }
 
     public static void linksDamSteel(EventFriend friend) {
+        if (friend.getPlayer() == null) return;
         if (friend.getCause() == EntityDamageEvent.DamageCause.THORNS) {
             Entity e = friend.getDamagingEntity();
             if (e instanceof LivingEntity) {
@@ -332,8 +334,8 @@ public final class PlayerDamagedEvents {
     }
 
     public static void linksMythril(EventFriend friend) {
+        if (friend.getPlayer() == null) return;
         if (GeneralUtils.testChance(1, 20)) {
-            if (friend.getPlayer() == null) return;
             Player p = friend.getPlayer();
             Wolf w = (Wolf) p.getWorld().spawnEntity(p.getLocation(), EntityType.WOLF);
             w.setOwner(p);
@@ -341,7 +343,7 @@ public final class PlayerDamagedEvents {
                 w.setTarget((LivingEntity) friend.getDamagingEntity());
             }
             RemoveWolf task = new RemoveWolf(w);
-            task.runTaskLater(SlimeTinker.getInstance(), 500);
+            task.runTaskLater(SlimeTinker.getInstance(), 300);
         }
     }
 
@@ -354,7 +356,6 @@ public final class PlayerDamagedEvents {
 
     public static void plateSingSilver(EventFriend friend) {
         NamespacedKey key = Keys.STOP_EVENTS;
-        if (friend.getPlayer() == null) return;
         Player player = friend.getPlayer();
         if (!PersistentDataAPI.hasInt(player, key) && friend.getCause() == EntityDamageEvent.DamageCause.LIGHTNING) {
             PersistentDataAPI.setInt(player, key, 1);
@@ -370,7 +371,6 @@ public final class PlayerDamagedEvents {
     }
 
     public static void plateAdamantite(EventFriend friend) {
-        if (friend.getPlayer() == null) return;
         if (friend.getCause() == EntityDamageEvent.DamageCause.PROJECTILE) {
             friend.setDamageMod(friend.getDamageMod() - 0.25);
         }
@@ -381,6 +381,7 @@ public final class PlayerDamagedEvents {
     }
 
     public static void linksMetal(EventFriend friend) {
+        if (friend.getPlayer() == null) return;
         if (GeneralUtils.testChance(1, 10) && friend.getDamagingEntity() instanceof LivingEntity) {
             friend.setCancelEvent(true);
             LivingEntity l = (LivingEntity) friend.getDamagingEntity();
@@ -504,6 +505,7 @@ public final class PlayerDamagedEvents {
     }
 
     public static void linksInfinity(EventFriend friend) {
+        if (friend.getPlayer() == null) return;
         if (friend.getDamagingEntity() != null && GeneralUtils.testChance(10, 100)) {
             friend.setDamageMod(0);
             if (friend.getDamagingEntity() instanceof LivingEntity) {
@@ -595,6 +597,7 @@ public final class PlayerDamagedEvents {
     }
 
     public static void plateOsmium(EventFriend friend) {
+        if (friend.getPlayer() == null) return;
         if (friend.getDamagingEntity() != null) {
             EntityUtils.push((LivingEntity) friend.getDamagingEntity(), friend.getPlayer().getLocation(), 0.2);
         }
@@ -651,6 +654,7 @@ public final class PlayerDamagedEvents {
     }
 
     public static void linksRefinedIron(EventFriend friend) {
+        if (friend.getPlayer() == null) return;
         Entity e = friend.getDamagingEntity();
         if (e instanceof LivingEntity) {
             LivingEntity l = (LivingEntity) e;
@@ -665,6 +669,7 @@ public final class PlayerDamagedEvents {
     }
 
     public static void plateMagThor(EventFriend friend) {
+        if (friend.getPlayer() == null) return;
         Entity e = friend.getDamagingEntity();
         if (e instanceof LivingEntity) {
             LivingEntity l = (LivingEntity) e;
