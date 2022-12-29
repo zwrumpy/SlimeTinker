@@ -35,12 +35,13 @@ import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
 import javax.annotation.Nonnull;
+import java.util.HashMap;
 import java.util.concurrent.ThreadLocalRandom;
 
 import static io.github.sefiraat.slimetinker.utils.EntityUtils.increaseEffect;
 
 public final class PlayerDamagedEvents {
-
+    public static HashMap<Player, Integer> wolfCount = new HashMap<>();
     private PlayerDamagedEvents() {
         throw new UnsupportedOperationException("Utility Class");
     }
@@ -335,15 +336,24 @@ public final class PlayerDamagedEvents {
 
     public static void linksMythril(EventFriend friend) {
         if (friend.getPlayer() == null) return;
-        if (GeneralUtils.testChance(1, 20)) {
+        if (GeneralUtils.testChance(1, 2)) {
             Player p = friend.getPlayer();
+            if (p == null) return;
+            if (!wolfCount.containsKey(p)) wolfCount.put(p,1);
+            if (wolfCount.containsKey(p)) if (wolfCount.get(p) > 3) return;
+
             Wolf w = (Wolf) p.getWorld().spawnEntity(p.getLocation(), EntityType.WOLF);
             w.setOwner(p);
+
+            if (wolfCount.containsKey(p)) wolfCount.replace(p ,wolfCount.get(p) + 1);
+
             if (friend.getDamagingEntity() != null) {
-                w.setTarget((LivingEntity) friend.getDamagingEntity());
+                if (friend.getDamagingEntity() instanceof LivingEntity) {
+                    w.setTarget((LivingEntity) friend.getDamagingEntity());
+                }
             }
-            RemoveWolf task = new RemoveWolf(w);
-            task.runTaskLater(SlimeTinker.getInstance(), 300);
+            RemoveWolf task = new RemoveWolf(w, p);
+            task.runTaskLater(SlimeTinker.getInstance(), 100);
         }
     }
 
